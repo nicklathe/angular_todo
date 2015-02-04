@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular To-Do</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.11/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.11/angular-animate.min.js"></script>
+    <script src="js/script.js"></script>
+</head>
+<body ng-app="TodoApp">
+    <div class="container">
+        <div class="row" ng-controller="TodoList">
+            <div class="col-md-12">
+                <h1>My To-Don't</h1>
+                <input type="text" ng-model="newItem">
+                <button class="btn btn-primary" ng-disabled="newItem < 1" ng-click="addItem()">Add Item</button>
+                <button class="btn btn-primary btn-animated" ng-click="getData()">Get Data</button>
+<!--                 <div class="animated infinite"ng-class="myAnimate">
+                    Animate this shit!
+                </div>
+                <input type="text" ng-model="myAnimate"> -->
+                <table class="table">
+                    <tr>
+                        <th></th>
+                        <th>Item</th>
+                        <th></th>
+                    </tr>
+                    <tr class="todo-anim" ng-class="{'danger': item.done}" ng-repeat="item in items">
+                        <td><input type="checkbox" ng-model="item.done"></td>
+                        <td ng-click="item.done = !item.done">{{item.name | uppercase}}</td>
+                        <td>
+                            <button class="btn btn-danger" ng-click="removeItem($index)">X</button>
+                            <button class="btn" ng-disabled="$index === 0" ng-click="move($index, -1)">Up</button>
+                            <button class="btn" ng-disabled="$index === items.length - 1" ng-click="move($index, 1)">Down</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
