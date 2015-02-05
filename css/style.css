@@ -2,6 +2,10 @@ body{
 
 }
 
+.weather {
+    top: 0;
+}
+
 .btn-animated {
     width: 100px;
     height: 34px;

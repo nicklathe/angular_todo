@@ -1,4 +1,4 @@
-var todoApp = angular.module('TodoApp', ['ngAnimate']);
+var todoApp = angular.module('TodoApp', ['ngAnimate', 'like-button', 'weather']);
 
 todoApp.run(function(){
     console.log('App running!');
