@@ -11,13 +11,14 @@ angular.module('weather',[])
             var req = {
                 url: 'http://api.openweathermap.org/data/2.5/weather',
                 params: {
-                    q: $scope.location
+                    q: $scope.location,
+                    units: 'imperial'
                 }
             };
 
             $http(req).success(function(data){
                 $scope.weather = data;
-                $scope.temp = Math.floor(((data.main.temp - 273.15) * 1.8000) + 32);
+                $scope.temp = Math.round(data.main.temp);
             });
         }],
         replace: true,
